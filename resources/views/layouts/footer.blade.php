@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer - Donkraft IT Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
+    
+    <style>
+        * {
+            font-family: 'Futura LT', sans-serif;
+             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        footer {
+            color: #f8fafc;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid darkcyan; /* Changed from blue to darkcyan */
+            background-image:
+    linear-gradient(45deg, rgba(0, 139, 139, 0.05) 25%, transparent 25%, transparent 75%, rgba(0, 139, 139, 0.05) 75%),
+    linear-gradient(-45deg, rgba(0, 139, 139, 0.05) 25%, transparent 25%, transparent 75%, rgba(0, 139, 139, 0.05) 75%);
+            background-size: 40px 40px;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section {
+            padding: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .footer-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background:blue;
+        }
+
+        .footer-section p {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        .footer-section a:hover {
+            color: darkcyan; /* Changed from blue to darkcyan */
+            background: rgba(0, 139, 139, 0.05); /* Changed rgba color to match darkcyan */
+            transform: translateX(10px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            background: #1e293b;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icons a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: darkcyan;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: rotate(5deg) scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 139, 139, 0.3); /* Changed rgba color to match darkcyan */
+        }
+
+        .social-icons a:hover::before {
+            opacity: 1;
+        }
+
+        .social-icons i {
+            color: white;
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .copyright {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 2rem 0 0;
+            border-top: 1px solid rgba(0, 139, 139, 0.1); /* Changed rgba color to match darkcyan */
+            position: relative;
+            color: #64748b;
+        }
+
+        .copyright::before {
+            content: '💻';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section h3 {
+                justify-content: center;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-section a {
+                justify-content: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+<footer class="bg-gray-900 text-gray-300 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t-4 border-blue-600">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- About Section -->
+        <div class="footer-section" x-data="{ visible: false }" x-intersect:enter="visible = true" x-transition:enter="transition ease-out duration-600" x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0">
+            <h3 class="text-xl font-semibold text-white mb-6 flex items-center gap-3 relative">
+                <i class="mdi mdi-server-security text-2xl text-blue-400"></i>About Us
+            </h3>
+            <div class="flex items-center mb-4">
+                <img src="{{ asset('images/godhana-logo.svg') }}" alt="Godhana Starter Kit Logo" class="h-12 mr-3">
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Empowering developers with innovative tools and frameworks to build modern, scalable web applications.
+                </p>
+            </div>
+            <div class="flex gap-4 mt-6">
+                <a href="https://linkedin.com" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:shadow-lg hover:rotate-6 hover:scale-110 transition-all duration-300" target="_blank">
+                    <i class="mdi mdi-linkedin text-xl"></i>
+                </a>
+                <a href="https://github.com" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:shadow-lg hover:rotate-6 hover:scale-110 transition-all duration-300" target="_blank">
+                    <i class="mdi mdi-github text-xl"></i>
+                </a>
+                <a href="https://twitter.com" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:shadow-lg hover:rotate-6 hover:scale-110 transition-all duration-300" target="_blank">
+                    <i class="mdi mdi-twitter text-xl"></i>
+                </a>
+                <a href="https://youtube.com" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:shadow-lg hover:rotate-6 hover:scale-110 transition-all duration-300" target="_blank">
+                    <i class="mdi mdi-youtube text-xl"></i>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=254731409052" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:shadow-lg hover:rotate-6 hover:scale-110 transition-all duration-300" target="_blank">
+                    <i class="mdi mdi-whatsapp text-xl"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section" x-data="{ visible: false }" x-intersect:enter="visible = true" x-transition:enter="transition ease-out duration-600 delay-100" x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0">
+            <h3 class="text-xl font-semibold text-white mb-6 flex items-center gap-3 relative">
+                <i class="mdi mdi-link-variant text-2xl text-blue-400"></i>Quick Links
+            </h3>
+            <ul class="space-y-3">
+                <li><a href="{{ route('home') }}" class="text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 hover:translate-x-2 flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300"><i class="mdi mdi-home text-lg"></i>Home</a></li>
+                <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 hover:translate-x-2 flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300"><i class="mdi mdi-information text-lg"></i>About Us</a></li>
+                     </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-section" x-data="{ visible: false }" x-intersect:enter="visible = true" x-transition:enter="transition ease-out duration-600 delay-200" x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0">
+            <h3 class="text-xl font-semibold text-white mb-6 flex items-center gap-3 relative">
+                <i class="mdi mdi-headset text-2xl text-blue-400"></i>Connect
+            </h3>
+            <p class="mb-3"><a href="mailto:support@godhana.com" class="text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 hover:translate-x-2 flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300"><i class="mdi mdi-email-fast text-lg"></i>support@godhana.com</a></p>
+            <p class="mb-3"><a href="tel:+254731409052" class="text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 hover:translate-x-2 flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300"><i class="mdi mdi-phone text-lg"></i>+254 731 409052</a></p>
+            <p class="text-gray-400 flex items-center gap-2 px-3 py-2"><i class="mdi mdi-clock-outline text-lg"></i>Support: 24/7/365</p>
+        </div>
+    </div>
+
+    <div class="copyright mt-12 pt-6 border-t border-gray-800 text-center relative">
+        <p class="text-sm text-gray-500">© {{ date('Y') }} Godhana Starter Kit. All rights reserved.<br>
+        <small>Empowering Developers, Building the Future</small></p>
+        <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-2xl opacity-30">💻</span>
+    </div>
+</footer>
+
+<style>
+    @font-face {
+        font-family: 'Futura LT';
+        src: url('{{ asset('fonts/futura-lt/FuturaLT-Book.ttf') }}') format('woff2'),
+             url('{{ asset('fonts/futura-lt/FuturaLT.ttf') }}') format('woff'),
+             url('{{ asset('fonts/futura-lt/FuturaLT-Condensed.ttf') }}') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    footer {
+        font-family: 'Futura LT', 'Inter', sans-serif;
+        background-image:
+            linear-gradient(45deg, rgba(37, 99, 235, 0.05) 25%, transparent 25%, transparent 75%, rgba(37, 99, 235, 0.05) 75%),
+            linear-gradient(-45deg, rgba(37, 99, 235, 0.05) 25%, transparent 25%, transparent 75%, rgba(37, 99, 235, 0.05) 75%);
+        background-size: 40px 40px;
+    }
+</style>
+
+    <script>
+        // Scroll Animation Trigger
+        const sections = document.querySelectorAll('.footer-section');
+
+        const checkVisibility = () => {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight * 0.85) {
+                    section.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+    </script>
+</body>
+</html>

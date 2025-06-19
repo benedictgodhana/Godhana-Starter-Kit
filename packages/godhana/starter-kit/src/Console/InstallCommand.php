@@ -12,6 +12,8 @@ class InstallCommand extends Command
 
     public function handle()
     {
+        $this->info('📄 Publishing Blade views...');
+
         $fs = new Filesystem;
 
         $pagesPath = resource_path('views/pages');
@@ -36,14 +38,16 @@ class InstallCommand extends Command
         $this->publishStub($fs, "$stubBase/nav.blade.stub", "$layoutsPath/nav.blade.php", 'Nav layout');
         $this->publishStub($fs, "$stubBase/footer.blade.stub", "$layoutsPath/footer.blade.php", 'Footer layout');
 
-        // Routes
+        $this->info('🔗 Registering routes...');
+
         $routesToAdd = [
             "Route::view('/', 'pages.home')->name('home');",
             "Route::view('/about', 'pages.about')->name('about');",
             "Route::view('/contact', 'pages.contact')->name('contact');"
         ];
 
-        $routesContent = $fs->get($routesPath);
+        $routesContent = $fs->exists($routesPath) ? $fs->get($routesPath) : '';
+
         foreach ($routesToAdd as $route) {
             if (!str_contains($routesContent, $route)) {
                 $fs->append($routesPath, "\n" . $route);
@@ -53,7 +57,7 @@ class InstallCommand extends Command
             }
         }
 
-        $this->info('✅ Godhana Starter Kit fully installed.');
+        $this->info("\n🎉 Godhana Starter Kit has been successfully installed!");
     }
 
     protected function publishStub(Filesystem $fs, string $stubPath, string $destination, string $label)

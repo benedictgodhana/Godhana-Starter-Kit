@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77d22a1b47097b9f4d4496d2fd21c85e",
+    "content-hash": "00e8658225fbe091a2c25bfc8c719376",
     "packages": [
         {
             "name": "brick/math",
@@ -586,11 +586,11 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "packages/godhana/starter-kit",
-                "reference": "0add64b004d7acaa3f62bd7837623de2339f43be"
+                "url": "../Godhana/packages/godhana/starter-kit",
+                "reference": "ff451095c651e861e68229cad5d36c9acaae1f6d"
             },
             "require": {
-                "illuminate/support": "^12.0",
+                "illuminate/support": "^10.0|^11.0|^12.0",
                 "php": "^8.1"
             },
             "type": "library",
@@ -606,8 +606,28 @@
                     "Godhana\\StarterKit\\": "src/"
                 }
             },
-            "description": "Godhana Laravel Starter Kit",
+            "autoload-dev": {
+                "psr-4": {
+                    "Godhana\\StarterKit\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "post-autoload-dump": [
+                    "@php artisan package:discover --ansi"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benedict Godhana",
+                    "email": "benedictgodhana7@gmail.com"
+                }
+            ],
+            "description": "Godhana Laravel Starter Kit with Home, About, Contact pages and layout",
             "transport-options": {
+                "symlink": true,
                 "relative": true
             }
         },
@@ -8121,10 +8141,8 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {
-        "godhana/starter-kit": 20
-    },
+    "minimum-stability": "dev",
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

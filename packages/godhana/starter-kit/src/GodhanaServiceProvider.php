@@ -7,7 +7,18 @@ use Godhana\StarterKit\Console\InstallCommand;
 
 class GodhanaServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    /**
+     * Register services.
+     */
+    public function register(): void
+    {
+        // You can bind services here if needed in the future
+    }
+
+    /**
+     * Bootstrap services.
+     */
+  public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -15,4 +26,5 @@ class GodhanaServiceProvider extends ServiceProvider
             ]);
         }
     }
+
 }

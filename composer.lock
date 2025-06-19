@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00e8658225fbe091a2c25bfc8c719376",
+    "content-hash": "a112613d37e30b50bf31484ae004a8c7",
     "packages": [
         {
             "name": "brick/math",
@@ -587,7 +587,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Godhana/packages/godhana/starter-kit",
-                "reference": "ff451095c651e861e68229cad5d36c9acaae1f6d"
+                "reference": "68ee0695cb3bbc1c2f8eb1c2481767142b10287f"
             },
             "require": {
                 "illuminate/support": "^10.0|^11.0|^12.0",
@@ -8142,7 +8142,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "godhana/starter-kit": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
